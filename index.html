@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minus-iphone-btn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="current-product" type="text" class="form-control text-center" value="0">
+                           <button id="iphone-btn" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$<span id="iphone-price">00</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="case-btn-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="current-number" type="text" class="form-control text-center" value="00">
+                           <button id="case-btn-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$<span id="case-price">00</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -64,9 +64,9 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
+                        <h5>$<span id="subtotal">00</span></h5>
                         <h5>$0</h5>
-                        <h5>$1,278</h5>
+                        <h5>$<span id="total">00</span></h5>
                      </div>
                   </div>
                </div>
@@ -77,6 +77,92 @@
          </div>
       </div>
    </section>
+
+<script>
+   const iphoneBtn = document.getElementById("iphone-btn");
+   iphoneBtn.addEventListener("click", function(){
+      const currentProduct = document.getElementById("current-product").value;
+      const currentProductNumber = parseFloat(currentProduct);
+      const totalProductNumber =currentProductNumber + 1;
+      document.getElementById("current-product").value = totalProductNumber;
+
+      const iphonePrice = document.getElementById("iphone-price").innerText;
+      const iphonePriceAmount = parseFloat(iphonePrice);
+      const iphonePriceTotalAmount =iphonePriceAmount + 1219;
+      document.getElementById("iphone-price").innerText =iphonePriceTotalAmount;
+
+
+       const subtotal = document.getElementById("subtotal").innerText;
+         const subtotalAmount =parseFloat(subtotal);
+         document.getElementById("subtotal").innerText = subtotalAmount + 1219;
+       const total = document.getElementById("total").innerText;
+       const totalAmount =parseFloat(total);
+       document.getElementById("total").innerText = totalAmount + 1219;
+ })
+     const iphonebtn = document.getElementById("minus-iphone-btn");
+     iphonebtn.addEventListener("click", function(){
+        const currentProduct1 = document.getElementById("current-product").value;
+        const currentProductNumber1 = parseFloat(currentProduct1);
+        const totalProductNumber1 = currentProductNumber1 - 1;
+        document.getElementById("current-product").value = totalProductNumber1;
+
+        const iphonePrice = document.getElementById("iphone-price").innerText;
+        const iphonePriceAmount = parseFloat(iphonePrice);
+        const iphonePriceTotalAmount =iphonePriceAmount - 1219;
+        document.getElementById("iphone-price").innerText =iphonePriceTotalAmount;
+        
+        const subtotal = document.getElementById("subtotal").innerText;
+         const subtotalAmount =parseFloat(subtotal);
+         document.getElementById("subtotal").innerText = subtotalAmount - 1219;
+       const total = document.getElementById("total").innerText;
+       const totalAmount =parseFloat(total);
+       document.getElementById("total").innerText = totalAmount - 1219;
+
+      
+      })
+
+      //Case
+      const caseBtn = document.getElementById("case-btn-plus");
+      caseBtn.addEventListener("click", function(){
+      const currentNumber = document.getElementById("current-number").value;
+      const currentProductNumber = parseFloat(currentNumber);
+      const totalProductNumber =currentProductNumber + 1;
+      document.getElementById("current-number").value = totalProductNumber;
+
+      const casePrice = document.getElementById("case-price").innerText;
+      const casePriceAmount = parseFloat(casePrice);
+      const casePriceTotalAmount =casePriceAmount + 59;
+      document.getElementById("case-price").innerText =casePriceTotalAmount;
+
+       const subtotal = document.getElementById("subtotal").innerText;
+       const subtotalAmount = parseFloat(subtotal);
+       document.getElementById("subtotal").innerText = subtotalAmount + 59;
+
+       const total = document.getElementById("total").innerText;
+       const totalAmount = parseFloat(total);
+       document.getElementById("total").innerText =totalAmount + 59;
+      });
+      const casebtn = document.getElementById("case-btn-minus");
+     casebtn.addEventListener("click", function(){
+        const currentProduct1 = document.getElementById("current-number").value;
+        const currentProductNumber1 = parseFloat(currentProduct1);
+        const totalProductNumber1 = currentProductNumber1 - 1;
+        document.getElementById("current-number").value = totalProductNumber1;
+
+        const casePrice = document.getElementById("case-price").innerText;
+        const casePriceAmount = parseFloat(casePrice);
+        const casePriceTotalAmount =casePriceAmount - 59;
+        document.getElementById("case-price").innerText =casePriceTotalAmount;
+        
+        const subtotal = document.getElementById("subtotal").innerText;
+         const subtotalAmount =parseFloat(subtotal);
+         document.getElementById("subtotal").innerText = subtotalAmount - 59;
+       const total = document.getElementById("total").innerText;
+       const totalAmount =parseFloat(total);
+       document.getElementById("total").innerText = totalAmount - 59;
+
+     });
+</script>
 </body>
 
 </html>
